@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .arrow {
+            color:black;
+            font-size: 14px;
+            margin: 0 auto;
+        }
+
+        .error {
+            border-color: red;
+        }
+
+        input {
+            margin-top: 20px;
+        }
+
+        button {
+            display: block;
+            margin-top: 20px;
+        }
+
+        .colored {
+            color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <p id="hiText" class="" style="" myAttr="" onclick="">Hi</p>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+
+    <div class="arrow">-></div>
+    <div class="arrow more-info">-></div>
+
+    <input type="text" value="">
+    <button onclick="verifyInput()">
+        Verify number
+    </button>
+
+    <script>
+        const text = document.getElementById('hiText');
+        text.textContent = 'Hello';
+
+        const lis = document.getElementsByTagName('li');
+
+        console.log(lis);
+
+        const list = document.getElementsByClassName('arrow');
+
+        console.log(list);
+
+        const arrow = document.querySelector('.arrow');
+        const arrowList = document.querySelectorAll('.arrow');
+        console.log(arrow)
+        console.log(arrowList);
+
+        arrow.innerHTML += ' <span>Click here</span>';
+
+        const link = document.createElement('a');
+        link.innerText = 'More info...';
+        link.href = 'https://google.com';
+
+        link.setAttribute('jlkasjdflkjsaslkd', 'googleLink');
+        link.removeAttribute('id');
+
+        document.querySelector('.more-info').append(link);
+
+        document.querySelector('.more-info').classList.add('primary');
+        document.querySelector('.more-info').classList.remove('arrow');
+        document.querySelector('.more-info').classList.toggle('arrow');
+
+        document.querySelector('.more-info').style.color = 'orange';
+        document.querySelector('.more-info').style.fontSize = '20px';
+        document.querySelector('.more-info').style.backgroundColor = '#ddd';
+        document.querySelector('.more-info').style.marginTop = '20px';
+    </script>
+
+    <script>
+        const verifyInput = () => {
+            const input = document.querySelector('input');
+
+            const checkPhone = (num) => {
+                return /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(num);
+            }
+
+            if(checkPhone(input.value)) {
+                input.classList.remove('error');
+            } else {
+                input.classList.add('error');
+            }
+        }
+
+        const listItems = document.querySelectorAll('li');
+
+        const listArray = [...listItems];
+        listArray.forEach((listItem, index) => {
+            if(index % 2 !== 0) {
+                listItem.classList.add('colored');
+            }
+        })
+    </script>   
+</body>
+</html>

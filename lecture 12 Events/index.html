@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .border {
+            margin: 10px;
+            border: 1px solid blue;
+        }
+
+        .clicked {
+            background-color: aqua;
+        }
+
+        .widget {
+
+        }
+    </style>
+</head>
+<body>
+    <section class="border">
+        section
+        <div class="border">
+            div
+            <p class="border">
+                p
+            </p>
+        </div>
+    </section>
+    <button>
+        Click me
+    </button>
+
+    <div class="container">
+        <h3>Title</h3>
+        <button data-btn="">
+            Click me
+        </button>
+        <button data-btn="">
+            Click <em>me</em>
+        </button>
+        <button data-btn="">
+            Click me
+        </button>
+        <button>
+            Click me
+        </button>
+        <button>
+            Click me
+        </button>
+    </div>
+
+    <div class="widget">
+        some text
+        <button id="saveData">
+            Save data
+        </button>
+    </div>
+    
+    <a href="https://google.com" id="googleLink">
+        Google
+    </a>
+
+    <div>
+        <input type="text">
+    </div>
+
+    <ul class="products">
+        <li>Apple</li>
+        <li>Ananas</li>
+        <li>Bannana</li>
+        <li>Cucumber</li>
+        <li>Orange</li>
+        <li>Oreo</li>
+        <li>Oil</li>
+    </ul>
+
+    <script src="./index.js"></script>
+
+    <script>
+        const buttonClickHandler = () => {
+            console.log('aaa');
+        }
+
+        const buttonClickHandler2 = () => {
+            console.log('bbb');
+        }
+
+        // document.querySelector('button').onclick = buttonClickHandler;
+
+        // document.querySelector('button').onclick = () => {};
+        // document.querySelector('button').setAttribute("onclick", "buttonClickHandler2()");
+
+        let a = {c: 1};
+
+        let b = a;
+
+        const func = (e) => {
+            e.target.style.backgroundColor = 'white';
+        };
+
+        document.querySelector('button')
+            .addEventListener('click', func);
+     
+        // wont work
+        document.querySelector('button')
+            .removeEventListener('click', () => {console.log('aaa')});
+
+        // work
+        // document.querySelector('button')
+        //     .removeEventListener('click', func);
+    </script>
+</body>
+</html>
