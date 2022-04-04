@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .tooltip {
+            background-color: #333;
+            color: white;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+
+            position: absolute;
+
+            transition: .5s;
+            opacity: 1;
+            
+            position: relative;
+        }
+
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            
+            border-top: 10px solid #333;
+        }
+
+        p {
+            display: inline-block;
+        }
+
+        .hide {
+            visibility: hidden;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="tooltip hide">
+        some hint
+    </div>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae perspiciatis sequi reprehenderit possimus odit maxime, corrupti pariatur totam sed illum iste, ad ipsum dolores quis quisquam. Voluptates, ex amet fugiat illum similique quia magnam voluptate harum! Reiciendis, doloremque ea! Soluta.
+    </p>
+    <p class="text" onmouseenter="onMouseEnter()" onmouseleave="onMouseLeave()">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, ratione.
+        <button>
+            dfsfs
+        </button>
+    </p>
+
+    <p>
+        Lorem ipsum dolor sit amet consectetur
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Culpa fuga fugiat ut officia eaque cumque at perspiciatis blanditiis odit, id vel ullam architecto. Nam possimus, amet similique at quisquam fugiat asperiores autem dolores animi porro impedit dolore enim, labore nobis inventore odit. Ducimus at numquam alias nam eos harum nihil! Voluptatum vel perferendis consectetur, beatae minima necessitatibus consequatur nihil at doloremque natus tempore quo eaque accusamus voluptas ad! Recusandae perspiciatis vero esse ipsum at, nam fugiat veniam, vel sapiente ad nobis? Expedita quaerat dolores, non modi provident sequi voluptatum, fugit eos corrupti ab, doloremque distinctio vitae in praesentium sint quibusdam?
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quae, ratione. Dolorem dolore ex voluptates vero ut assumenda hic veniam cumque, nesciunt, quidem, odio itaque cum quam repudiandae nobis quasi voluptas unde eum eligendi fugiat totam quia. Necessitatibus, iure? Doloremque, illo beatae expedita vel repudiandae ex. Reiciendis quae quas fugit corrupti ad magni, distinctio omnis repellat aliquid eveniet facere maiores illum suscipit quo beatae recusandae! Adipisci hic assumenda fugiat velit labore itaque aspernatur commodi aliquid eaque accusantium ducimus eius rem blanditiis illum dicta culpa odit error aliquam voluptates praesentium cupiditate, ratione debitis nisi. Dolor culpa necessitatibus tempora hic, autem voluptatem tenetur ipsa repudiandae eveniet impedit consequatur saepe. Sint eum mollitia sunt deleniti amet adipisci velit voluptate beatae consequatur laudantium, aspernatur temporibus perferendis praesentium doloremque reiciendis totam ipsa dicta laboriosam recusandae obcaecati error, ipsum expedita? Id facilis consequuntur quidem. Alias optio, repellat, et quia laudantium nihil, eum dolorem ea eos hic deserunt distinctio. Asperiores vero, deleniti ipsa quibusdam tempore at debitis maiores dolores dolorem officiis illum reprehenderit porro, assumenda adipisci id in voluptatibus earum neque numquam mollitia! Nesciunt ad porro a nemo aperiam voluptas, quasi, beatae reiciendis quas non corrupti? Eius obcaecati ex esse ducimus pariatur omnis odio atque, nesciunt fugiat maxime quam nihil similique illum hic aut quo, eos necessitatibus beatae ullam unde vel consequatur quis. Ab dignissimos harum quae velit in esse cum reprehenderit iure veniam ex. Sequi laborum magnam qui perspiciatis assumenda expedita nihil repudiandae quos, nemo culpa. Nam ullam ad facere laboriosam fuga, nostrum molestias praesentium? Iure veritatis similique porro enim quod hic magnam soluta quidem in repudiandae repellat sapiente, atque modi architecto harum aut recusandae ea. Modi itaque accusamus facere pariatur. Eos ad architecto sed, itaque quos vel eaque ducimus error id nisi excepturi veniam corporis pariatur. Illo provident dicta accusantium quae nihil. Laborum numquam ad adipisci.
+    </p>
+
+    <script>
+        const onMouseEnter = () => {
+            const tooltip = document.querySelector('.tooltip');
+            tooltip.classList.remove('hide');
+            
+            console.dir(event.target);
+            console.dir(tooltip)
+
+            const tooltipHeight = tooltip.offsetHeight + 10;
+
+            if(event.target.getBoundingClientRect().top > tooltipHeight) {
+                tooltip.style.top = event.target.offsetTop - tooltipHeight + 'px';
+            } else {
+                tooltip.style.top = event.target.offsetTop + event.target.offsetHeight + 'px';
+            }
+
+            tooltip.style.left = event.target.clientWidth / 2 - tooltip.clientWidth / 2 + 'px'           
+        }
+
+        const onMouseLeave = (event) => {
+            document.querySelector('.tooltip').classList.add('hide')
+        }
+    </script>
+</body>
+</html>

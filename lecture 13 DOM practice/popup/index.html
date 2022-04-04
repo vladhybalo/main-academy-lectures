@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background-color: #fff;
+            padding: 50px 70px;
+            position: relative;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="showPopup()">
+        Click me
+    </button>
+    <article class="popup hide">
+        <div class="popup-content">
+            Popup
+            <button class="popup-close" onclick="hidePopup()">
+                &#x2717;
+            </button>
+        </div>
+    </article>
+
+    <script>
+        const showPopup = () => {
+            document.querySelector('.popup').classList.remove('hide');
+        }
+
+        const hidePopup = () => {
+            document.querySelector('.popup').classList.add('hide');
+        }
+    </script>
+</body>
+</html>

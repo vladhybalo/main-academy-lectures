@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .todo-container {
+            margin: 20px 0;
+            padding: 0;
+        }
+        .todo-item {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            background-color: #ddd;
+            padding: 5px 20px;
+            border-bottom: 1px solid;
+        }
+
+        .todo-name {
+            flex-grow: 1;
+        }
+
+        .todo-close {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .popup {
+            background-color: white;
+            padding: 30px;
+        }
+
+        .popup-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .done {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <h1>ToDo list</h1>
+    <ul class="todo-container">
+        <li class="todo-item">
+            <p class="todo-name">
+                Task 1
+            </p>
+            <button class="todo-close">
+                &#x2717;
+            </button>
+        </li>
+    </ul>
+
+    <div class="popup-container hide">
+        <div class="popup">
+            <input type="text">
+            <button onclick="saveTask()">Add</button>
+        </div>
+    </div>
+
+    <button onclick="showPopup()">
+        Add new task
+    </button>
+
+    <script>
+        const showPopup = () => {
+            document.querySelector('.popup-container').classList.remove('hide');
+        }
+
+        const saveTask = () => {
+            const taskName = document.querySelector('input').value;
+
+            if(taskName) {
+                const html = `<li class="todo-item">
+                    <p class="todo-name">
+                        ${taskName}
+                    </p>
+                    <button class="todo-close">
+                        &#x2717;
+                    </button>
+                </li>`;
+
+                document.querySelector('.todo-container').innerHTML += html;
+
+                document.querySelector('.popup-container').classList.add('hide');
+                document.querySelector('input').value = '';
+            }
+        }
+
+        // delete
+        document.querySelector('.todo-container')
+            .addEventListener('click', (event) => {
+                if(event.target.matches('.todo-close')) {
+                    const li = event.target.closest('.todo-item');
+                    if(li) {
+                        li.style.display = 'none';
+                    }
+                }
+            });
+
+        // toggle
+        document.querySelector('.todo-container')
+            .addEventListener('click', (event) => {
+                const li = event.target.closest('.todo-item');
+                if(li) {
+                    li.classList.toggle('done')
+                }
+            });
+    </script>
+</body>
+</html>
