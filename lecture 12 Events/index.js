@@ -66,3 +66,11 @@ document.querySelector('.container')
                 }
             }
         });
+
+        document.body.addEventListener('input', () => {
+            console.log('body inpit')
+        })
+
+        document.body.addEventListener('change', () => {
+            console.log('body inpit')
+        })
