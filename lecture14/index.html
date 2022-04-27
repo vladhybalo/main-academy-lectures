@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="alert('Hi')">Click me</button>
+    <!-- <script>
+        const id = setTimeout(() => {
+            console.log('e');
+        }, 1000);
+
+        clearTimeout(id);
+
+        setTimeout(() => {
+            console.log('d');
+        }, 0);
+
+        const intervalId = setInterval(() => {
+            console.log('interval');
+        }, 1000);
+
+        setTimeout(() => {
+            clearInterval(intervalId);
+        }, 5000);
+
+        console.log('a');
+        console.log('b');
+        console.log('c');
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const finish = Date.now() + 4000;
+
+            // while(finish > Date.now()) {
+
+            // }
+            console.log('finish');
+        });
+
+       
+       
+    </script> -->
+    <script>
+        const firstCat = 'https://images.theconversation.com/files/443350/original/file-20220131-15-1ndq1m6.jpg?ixlib=rb-1.1.0&rect=0%2C0%2C3354%2C2464&q=45&auto=format&w=926&fit=clip';
+        const secondCat = 'https://images.theconversation.com/files/443350/original/file-20220131-15-1ndq1m6.jpg?ixlib=rb-1.1.0&rect=0%2C0%2C3354%2C2464&q=45&auto=format&w=926&fit=clip';
+
+        const loadImg = (url, resolve, reject) => {
+            const img = document.createElement('img');
+            
+            img.src = url;
+            img.onload = resolve;
+            img.onerror = () => {
+                console.log('error');
+                reject();
+            };
+
+            document.body.append(img);
+        }
+
+        // loadImg(firstCat);
+        // loadImg(secondCat);
+
+        /*
+            promise state
+            1 - pending
+            2 - fulfilled
+            3 - rejected
+        */
+
+        new Promise((resolve, reject) => {
+            loadImg(firstCat, resolve, reject);
+        })
+        .then(() => {
+            console.log('Img 1 success');
+
+            return new Promise((resolve, reject) => loadImg(secondCat, resolve, reject))
+        })
+        .then(() => {
+            console.log('Img 2 success');
+
+            return 2;
+        })
+        .then((value) => {
+            console.log(value);
+        })
+        .catch(() => {
+            console.log('error');
+        })
+        .finally(() => {
+            console.log('finally');
+        });
+
+
+        Promise.all([
+            new Promise((resolve, reject) => loadImg(firstCat, resolve, reject)),
+            new Promise((resolve, reject) => loadImg(secondCat, resolve, reject))
+        ]).then((result) => {
+            console.log();
+        }, () => {
+            console.log('error')
+        });
+
+        
+    </script>
+</body>
+</html>
