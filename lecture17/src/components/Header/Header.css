@@ -1,0 +1,14 @@
+header {
+    background: aliceblue;
+    padding: 30px;
+    display: flex;
+    justify-content: space-around;
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.login_btn {
+    padding: 10px 20px;
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+}
