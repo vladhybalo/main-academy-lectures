@@ -1,0 +1,15 @@
+.form-input {
+
+}
+
+.form-label {
+    display: block;
+    margin: 10px auto;
+}
+
+.error {
+    font-size: 12px;
+    color: red;
+    margin: 0;
+    padding: 0;
+}
