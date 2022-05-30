@@ -1,0 +1,15 @@
+td {
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+}
+
+.error {
+    background-color: red;
+}
+
+tr {
+    max-width: 89px;
+    display: flex;
+    flex-wrap: wrap;
+}
