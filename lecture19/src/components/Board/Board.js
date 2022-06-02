@@ -39,7 +39,8 @@ export default class Board extends React.Component {
 
         this.setState({
             boardId: newBoardIds
-        })
+        });
+        
         if(this.state.playMode === playModes.MEMORIZING) {
             setTimeout(() => {
                 this.setState({
