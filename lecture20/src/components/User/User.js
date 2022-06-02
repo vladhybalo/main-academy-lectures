@@ -6,15 +6,9 @@ import {UserContext} from '../../contextCreator';
 class User extends React.Component {
     static contextType = UserContext;
 
-    handleClick() {
-        this.context
-    }
-
-    componentDidMount() {
-        this.context
-    }
-
     render() {
+        console.log('user rerender');
+
         return <div>
             {this.context.name}
         </div>
