@@ -1,0 +1,35 @@
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 19px 13px 30px;
+    background: #141414;
+}
+
+.header-text {
+    margin: 0;
+    font-weight: 600;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.header-img {
+    transform: rotate(180deg);
+}
+
+.filter-item {
+    margin: 10px 10px 10px 30px;
+    display: block;
+}
+
+.filter-item-text {
+    font-size: 16px;
+    line-height: 20px;
+    color: #141414;
+    margin: 0 15px;
+}
+
+.filter-item-number {
+    font-size: 16px;
+    line-height: 20px;
+    color: #E8AA31;
+}

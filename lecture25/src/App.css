@@ -1,0 +1,8 @@
+.add-item_link {
+    text-decoration: none;
+    color: black;
+    padding: 10px 20px;
+    border: 1px solid gray;
+    margin: 30px auto 0;
+    /* display: block; */
+}

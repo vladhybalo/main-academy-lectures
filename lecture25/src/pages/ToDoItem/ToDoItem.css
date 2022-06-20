@@ -1,0 +1,9 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.save-btn {
+    width: 150px;
+    padding: 10px;
+}
