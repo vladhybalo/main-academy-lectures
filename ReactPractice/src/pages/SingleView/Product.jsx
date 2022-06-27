@@ -13,22 +13,19 @@ function Product({product}) {
     const [amount, setAmount] = useState(1);
     const [currentDesrTab, setDesrTab] = useState(0);
 
-    console.log(product)
-    const descriptionTabsConfig = [
-        "Description",
-        "Specifications",
-        "Reviews",
-        "Shipping"
-    ];
+
+    if(!product) {
+        return null;
+    }
+    console.log(product.tabs[currentDesrTab].text);
 
     return(
         <section className='item'>
             <div className='item__pic-info-set'>
                 <div className='pic-info-set__pic-set'>
                     {
-                        product.name &&
-                        product.pictures.map((photo, i) => 
-                             <div className = {i === 0 ?  'pic-set__main-image-wrapper' : "pic-set__image-wrapper"}>
+                        product.images.map((photo, i) => 
+                             <div key={i} className = {i === 0 ?  'pic-set__main-image-wrapper' : "pic-set__image-wrapper"}>
                                 <img src={photo}
                                 className="pic-set__img" alt="item-another-photo" /> 
                             </div> )
@@ -39,13 +36,11 @@ function Product({product}) {
                         <div className='title-set__title-info'>
                             <div className='title-info__title-stars-set'>
                                 <span className='title-stars-set__title'>
-                                    {product.name}
+                                    {product.title}
                                 </span>
-                                { product.name ? 
-                                    <div className='title-info__title-stars-set'>
-                                        { getRating(product.rating) }
-                                    </div> : false
-                                }
+                                <div className='title-info__title-stars-set'>
+                                    {getRating(product.rating) }
+                                </div>
                             </div>
                             {
                                 product.available ? <span className='title-set__available'>Available</span> :
@@ -68,17 +63,21 @@ function Product({product}) {
                             <span className='set-item__value' >{product.trademark}</span>
                         </li>
                         <li className='description-set__item'>
-                            <span className='set-item__name' >Cultivar:</span>
-                            <span className='set-item__value' >{product.cultivar}</span>
+                            <span className='set-item__name' >Article:</span>
+                            <span className='set-item__value' >{product.article}</span>
                         </li>
                         <li className='description-set__item'>
                             <span className='set-item__name' >Country of Origin:</span>
                             <span className='set-item__value' >{product.country}</span>
                         </li>
+                        <li className='description-set__item'>
+                            <span className='set-item__name' >Country of Origin:</span>
+                            <span className='set-item__value' >{product.size}</span>
+                        </li>
                     </div>
                     <div className='line'></div>
                     <div className='info-set__options'>
-                        { product.name ? getOptions(product.options) : false }
+                        {getOptions(product.options)}
                     </div>
                     <div className='line'></div>
                     <div className='info-set__price-area'>
@@ -87,7 +86,7 @@ function Product({product}) {
                                 ${product.price} <span className='price-units'>per {product.units}</span>
                             </span>
                             <span>
-                            + { product.name ? parseFloat(product.price)*1000 / 8 : false } bonuses
+                            + {product.bonuses } bonuses
                             </span>
                         </div>
                     </div>
@@ -111,45 +110,19 @@ function Product({product}) {
                 </article>
             </div>
             <article className='item-description-tabs'>
-                    {
-                        <>
-                        <nav className='description-tabs__tabs-titles'>
-                            {descriptionTabsConfig.map( (tabName, i) => 
-                                <div className='tabs__title-set'>
-                                    <span className='tabs-titles__title' key = {i + "tab"} onClick={() => setDesrTab(i)} >
-                                        { currentDesrTab === i ? <strong>{tabName}</strong> : <>{tabName}</> }
-                                    </span>
-                                    {currentDesrTab === i && <div className='title-selected-bar'></div>}
-                                </div>
-                            )}
-                        </nav>
-                        <div className='line'></div>
-                        </>
-                    }
-                    <span className='item-description-tabs__text-container'>
-                        {currentDesrTab === 0 && product.description}
-                        {
-                            currentDesrTab === 1 && 
-                        
-                            <div className='text-container__specs-set'>
-                                { Object.keys(product.specs).map( (key, index) => <>
-                                    <span className='text-container__spec-title' key = {"title" + index}> 
-                                        {key}
-                                    </span>
-                                    <span className='text-container__spec-text' key = {"text" + index}>
-                                        {product.specs[key]}
-                                    </span>
-                                    <div className='line'></div>
-                                    </>
-                                ) }
+                    <nav className='description-tabs__tabs-titles'>
+                        {product.tabs.map( ({title, id}, i) => 
+                            <div className='tabs__title-set' key={id}>
+                                <span className='tabs-titles__title' key = {i + "tab"} onClick={() => setDesrTab(i)} >
+                                    { currentDesrTab === i ? <strong>{title}</strong> : <>{title}</> }
+                                </span>
+                                {currentDesrTab === i && <div className='title-selected-bar'></div>}
                             </div>
-                        }
-                        {
-                            currentDesrTab === 2 && "Reviews"
-                        }
-                        {
-                            currentDesrTab === 3 && "Shipping"
-                        }
+                        )}
+                    </nav>
+                    <div className='line'></div>
+                    <span className='item-description-tabs__text-container'>
+                        {product.tabs[currentDesrTab].text}
                     </span>
             </article>
         </section>
@@ -176,6 +149,8 @@ const getOptions = (options) => {
 
     let keys = Object.keys(options);
     let values = Object.values(options);
+    console.log(keys)
+    console.log(values)
 
     for(let i = 0; i < keys.length; i++){
         let item = []

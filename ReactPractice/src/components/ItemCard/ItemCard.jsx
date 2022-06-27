@@ -13,33 +13,29 @@ export function ItemCard (props) {
     return(
         <Link className='item-card' to={`/products/${props.item.id}`}>
             <div className='card-pic-wrapper'> 
-                {props.item.name &&
-                    <img className='card-pic-img' src={props.item.pictures[0]} alt="" />
-                }    
+                <img className='card-pic-img' src={props.item.img} alt="" />   
             </div>
             <span className='card-name'>
-                {props.item.name}
+                {props.item.title}
             </span>
             <div className='card__info-set'>
                 <span className='info-set__item'>
-                    {props.item.cultivar}
+                    {props.item.size}
                 </span>
 
                 <span className='info-set__item'>
                     {props.item.country}
                 </span>
             </div>
-            {!!props.item.name &&
-                <div className='info-set__review-set'>
-                    <div className='rating'>
-                        {getRating(props.item.rating)}
-                    </div>
-                
-                    <span className='info-set__item'>
-                        {props.item.reviews}
-                    </span>
+            <div className='info-set__review-set'>
+                <div className='rating'>
+                    {getRating(props.item.rating)}
                 </div>
-            }
+            
+                <span className='info-set__item'>
+                    {props.item.reviews}
+                </span>
+            </div>
             <div className='line'></div>
             <div className='price-set'>
                 <span className='price'>

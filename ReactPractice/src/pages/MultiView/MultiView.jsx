@@ -26,7 +26,7 @@ export function MultiView () {
   
     const fetchStorage = async () => {
       try{
-        const storageProm = await fetch('http://localhost:3100/items/');
+        const storageProm = await fetch('http://localhost:3100/productsList');
         if(storageProm.ok){
             const items = await storageProm.json();
   

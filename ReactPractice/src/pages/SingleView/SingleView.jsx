@@ -10,7 +10,7 @@ import "./SingleView.css";
 function SingleView (props) {
     const {id} = useParams();
 
-    const [product, setProduct] = useState([]);
+    const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(false);
 
 
@@ -24,7 +24,7 @@ function SingleView (props) {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`http://localhost:3100/items/${id}`)
+        fetch(`http://localhost:3100/product/${id}`)
             .then(response => {
                 if(response.ok) {
                     return response.json();
