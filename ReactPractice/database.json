@@ -1,0 +1,65 @@
+{
+    "items": [
+        {
+            "id": "item0",
+            "available": "true",
+            "name": "Banana",
+            "categories": ["fruits", "food", "healthy"],
+            "pictures": [
+                "/src/Items/Photos/banana/banana0.jpg",
+                "/src/Items/Photos/banana/banana1.jpg",
+                "/src/Items/Photos/banana/banana2.jpg",
+                "/src/Items/Photos/banana/banana3.jpg",
+                "/src/Items/Photos/banana/banana4.jpg"
+            ],
+            "price": "1,99",
+            "units": "kg",
+            "rating": "5",
+            "reviews": "12",
+            "description": "Suspendisse congue metus et ligula dignissim, eget suscipit ipsum tincidunt. Suspendisse potenti. Donec dictum, dui et aliquet venenatis, nulla augue commodo neque, id euismod velit mauris in lacus. Curabitur convallis mi ut venenatis imperdiet. Maecenas aliquet lectus eu ipsum ultrices aliquet. Duis malesuada ultricies sem eget hendrerit. Phasellus eget dui libero.",
+            "trademark": "BANANA INC",
+            "cultivar": "Cavendish",
+            "country": "India",
+            "options": {
+                "color": ["green", "yellow"],
+                "package": ["paper bag", "plastic bag"]
+            },
+            "specs": {
+                "Cultivar": "In global commerce in 2009, by far the most important cultivars belonged to the triploid AAA group of Musa acuminata, commonly referred to as Cavendish group bananas.",
+                "Storage and transport": "Bananas must be transported over long distances from the tropics to world markets.[85] To obtain maximum shelf life, harvest comes before the fruit is mature. The fruit requires careful handling, rapid transport to ports, cooling, and refrigerated shipping. The goal is to prevent the bananas from producing their natural ripening agent, ethylene. ",
+                "Sustainability": "The excessive use of fertilizers often left in abandoned plantations contributes greatly to eutrophication in local streams and lakes, and harms aquatic life after algal blooms deprive fish of oxygen. It has been theorized that destruction of 60% of coral reefs along the coasts of Costa Rica is partially from sediments from banana plantations."
+            }
+            
+        },
+        {
+            "id": "item1",
+            "available": "true",
+            "name": "Apple",
+            "categories": ["fruits", "food", "healthy"],
+            "pictures": [
+                "/src/Items/Photos/apple/apple0.jpg",
+                "/src/Items/Photos/apple/apple1.jpg",
+                "/src/Items/Photos/apple/apple2.jpg",
+                "/src/Items/Photos/apple/apple3.jpg",
+                "/src/Items/Photos/apple/apple4.jpg"
+            ],
+            "price": "1,50",
+            "units": "kg",
+            "rating": "5",
+            "reviews": "4",
+            "description": "Suspendisse congue metus et ligula dignissim, eget suscipit ipsum tincidunt. Suspendisse potenti. Donec dictum, dui et aliquet venenatis, nulla augue commodo neque, id euismod velit mauris in lacus. Curabitur convallis mi ut venenatis imperdiet. Maecenas aliquet lectus eu ipsum ultrices aliquet. Duis malesuada ultricies sem eget hendrerit. Phasellus eget dui libero.",
+            "trademark": "MEGA APPLE INC",
+            "cultivar": "Gala",
+            "country": "Ukraine",
+            "options": {
+                "color": ["red", "green", "yellow"],
+                "package": ["paper bag", "plastic bag"]
+            },
+            "specs": {
+                "General info": "Gala is a clonally propagated apple cultivar with a mild and sweet flavour and striped or mottled appearance. In 2018, it surpassed Red Delicious as the apple cultivar with the highest production in the United States, according to the US Apple Association. It was the first time in over 50 years that any cultivar was produced more than Red Delicious",
+                "Appearance and flavour": "Gala apples are non-uniform in colour, usually vertically striped or mottled, with overall orange colour.[1] They are sweet, fine textured, and aromatic,[1] and in addition to being eaten raw and cooked are especially suitable for creating sauces.",
+                "Season": "Gala apples are grown from May through September in the northern hemisphere, but, like most apples, are available almost all year through the use of cold storage and controlled atmosphere storage."
+            }
+        }
+    ]
+}
