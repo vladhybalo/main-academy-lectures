@@ -1,0 +1,29 @@
+.range-line {
+    height: 5px;
+    width: 300px;
+    background-color: black;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.range-circle {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: aquamarine;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    z-index: 100;
+}
+
+.range-input {
+    width: 150px;
+}
+
+.range-wrapper {
+    margin: 200px 0 20px 200px;
+
+}

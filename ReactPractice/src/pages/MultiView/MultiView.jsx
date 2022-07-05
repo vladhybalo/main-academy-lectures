@@ -16,7 +16,7 @@ const sortingOptions = [
 export function MultiView () {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [sortingIndex, setSortingIndex] = useState(0);
+    const [sortingIndex, setSortingIndex] = useState(null);
   
     useEffect(() => {
         setLoading(true);
@@ -68,7 +68,12 @@ export function MultiView () {
             <Filter></Filter>
         </div>
         <div>
-          <Dropdown options={sortingOptions} onSelect={onSelect} selectedIndex={sortingIndex}></Dropdown>
+          <div className='dropdown-holder'>
+            <Dropdown options={sortingOptions} onSelect={onSelect} selectedIndex={sortingIndex}></Dropdown>
+          </div>
+          <div className='dropdown-holder'>
+            <Dropdown options={sortingOptions} onSelect={onSelect} selectedIndex={sortingIndex}></Dropdown>
+          </div>
           <ProductsList products={products} loading={loading}></ProductsList>
         </div>
     </section>;

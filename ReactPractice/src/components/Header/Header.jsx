@@ -6,7 +6,9 @@ import searchPic from "./HeaderRes/search-pic.svg";
 import likePic from "./HeaderRes/like-icon.png";
 import cartPic from "./HeaderRes/cart-icon.png";
 import arrowPic from "./HeaderRes/arrow-icon.png";
-import personIcon from "./HeaderRes/personal-icon.png"
+import personIcon from "./HeaderRes/personal-icon.png";
+
+import {Link} from 'react-router-dom';
 
 function Header (props) {
 
@@ -16,7 +18,7 @@ function Header (props) {
                 <div className='upper-line__set'>
                     <ul className='upper-line__info-set'>
                         <li className='info-set__item'>
-                            <a href="" className='info-set__link'>
+                            <a href={'/mev'} className='info-set__link'>
                                 About Us
                             </a>
                         </li>

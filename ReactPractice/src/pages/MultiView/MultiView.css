@@ -32,3 +32,8 @@
     gap: 25px;
     flex-wrap: wrap;
 }
+
+.dropdown-holder {
+    margin: 0 0 20px 20px;
+    max-width: 400px;
+}
